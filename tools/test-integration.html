@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Test: Einbettung wie in WordPress</title>
+<style>
+  body { margin: 0; background: #00164a; font-family: system-ui, sans-serif; color: #fff; }
+  .wp-header { position: sticky; top: 0; z-index: 5; height: 96px; background: #fff; color: #00164a; display: flex; align-items: center; padding: 0 32px; font-weight: 700; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
+  .controls { max-width: 1260px; margin: 16px auto; padding: 0 16px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 14px; }
+  .controls button { border: 1px solid #93a3cc; background: transparent; color: #fff; border-radius: 8px; padding: 6px 10px; cursor: pointer; }
+  .controls button[aria-pressed="true"] { background: #7fd1c9; color: #00164a; border-color: #7fd1c9; }
+  .content { max-width: 1260px; margin: 0 auto 80px; padding: 0 16px; }
+  .content iframe { display: block; width: 100%; height: 1700px; border: 0; margin: 0 auto; background: #00164a; outline: 1px dashed rgba(127,209,201,.5); }
+</style>
+</head>
+<body>
+  <div class="wp-header">Simulierte WordPress-Kopfzeile (wie unipop.lu)</div>
+  <div class="controls">
+    <span>iFrame-Breite:</span>
+    <button type="button" data-w="1260">1260</button>
+    <button type="button" data-w="1200">1200</button>
+    <button type="button" data-w="1000" aria-pressed="true">1000</button>
+    <button type="button" data-w="900">900</button>
+    <button type="button" data-w="700">700</button>
+    <button type="button" data-w="480">480</button>
+    <button type="button" data-w="375">375</button>
+    <label style="margin-left:12px"><input type="checkbox" id="demo" checked> Demo-Inhalte</label>
+    <span id="status" style="margin-left:auto;color:#c6d1ec">Höhe: –</span>
+  </div>
+  <div class="content">
+    <iframe id="unipop-espace-formateurs" title="Espace Formateurs UniPop" src="../index.html?demo" style="max-width:1000px" allow="fullscreen; autoplay; picture-in-picture"></iframe>
+  </div>
+<script>
+(function () {
+  /* Gleicher Listener wie in wordpress-embed.html – hier mit der lokalen Adresse. */
+  var IFRAME_ORIGIN = window.location.origin;
+  var HEADER_OFFSET = 110;
+  var CHANNEL = 'unipop-espace-formateurs';
+  var frame = document.getElementById('unipop-espace-formateurs');
+  var status = document.getElementById('status');
+  function hello() { try { frame.contentWindow.postMessage({ channel: CHANNEL, type: 'hello' }, IFRAME_ORIGIN); } catch (e) {} }
+  frame.addEventListener('load', hello);
+  window.addEventListener('message', function (event) {
+    if (event.origin !== IFRAME_ORIGIN || event.source !== frame.contentWindow) return;
+    var d = event.data;
+    if (!d || typeof d !== 'object' || d.channel !== CHANNEL) return;
+    if (d.type === 'ready') { hello(); return; }
+    if (d.type === 'resize') {
+      var h = Number(d.height);
+      if (!isFinite(h) || h < 200 || h > 40000) return;
+      frame.style.height = Math.ceil(h) + 'px';
+      status.textContent = 'Höhe: ' + Math.ceil(h) + ' px';
+    }
+    if (d.type === 'scroll') {
+      var top = Number(d.top);
+      if (!isFinite(top) || top < 0) return;
+      window.scrollTo({ top: Math.max(0, window.pageYOffset + frame.getBoundingClientRect().top + top - HEADER_OFFSET), behavior: 'smooth' });
+    }
+  });
+  document.querySelectorAll('[data-w]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('[data-w]').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+      b.setAttribute('aria-pressed', 'true');
+      frame.style.maxWidth = b.dataset.w + 'px';
+    });
+  });
+  document.getElementById('demo').addEventListener('change', function (e) {
+    frame.src = e.target.checked ? '../index.html?demo' : '../index.html';
+  });
+})();
+</script>
+</body>
+</html>

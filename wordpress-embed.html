@@ -1,0 +1,93 @@
+<!--
+  =====================================================================
+  UniPop – Espace Formateurs : Code zum Einbetten in WordPress
+  =====================================================================
+  WO EINFÜGEN?
+  Seite „Formateur“ in WordPress bearbeiten → an der gewünschten Stelle
+  einen Block „Individuelles HTML“ / „Custom HTML“ einfügen → den
+  gesamten Code zwischen ANFANG und ENDE (Variante A) hineinkopieren →
+  „Vorschau“ prüfen → „Aktualisieren“.
+  (Classic Editor: Reiter „Text“, nicht „Visuell“. Elementor: Widget „HTML“.)
+
+  VOR DEM EINFÜGEN ANPASSEN (2 Stellen):
+  1. src="…"           → vollständige GitHub-Pages-Adresse der Seite
+  2. IFRAME_ORIGIN     → nur Protokoll + Domain, OHNE Pfad und ohne „/“ am Ende
+     Beispiel: Seite  https://letzbug.github.io/unipop-espace-formateurs/
+               Origin https://letzbug.github.io
+
+  Variante A = automatische Höhe (empfohlen, benötigt das <script>).
+  Variante B = Notlösung ohne JavaScript (feste Höhe, Scrollen im Rahmen).
+  Details: README.md, Abschnitt 9 und 10.
+  =====================================================================
+-->
+
+
+<!-- ===== VARIANTE A – ANFANG (automatische Höhe) ===== -->
+<div class="unipop-ef" style="width:100%;max-width:100%;">
+  <iframe
+    id="unipop-espace-formateurs"
+    src="https://letzbug.github.io/unipop-espace-formateurs/"
+    title="Espace Formateurs UniPop"
+    style="display:block;width:100%;height:1700px;border:0;background:#00164a;"
+    allow="fullscreen; autoplay; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+<script>
+(function () {
+  var IFRAME_ORIGIN = 'https://letzbug.github.io'; /* nur Protokoll + Domain */
+  var HEADER_OFFSET = 140;  /* Höhe der UniPop-Kopfzeile in px (Sprung zu Rubriken) */
+  var CHANNEL = 'unipop-espace-formateurs';
+  var frame = document.getElementById('unipop-espace-formateurs');
+  if (!frame || !window.postMessage) return;
+  var sized = false;
+
+  function hello() {
+    try { frame.contentWindow.postMessage({ channel: CHANNEL, type: 'hello' }, IFRAME_ORIGIN); } catch (e) {}
+  }
+  frame.addEventListener('load', function () {
+    hello();
+    setTimeout(function () { if (!sized) hello(); }, 1500);
+  });
+
+  window.addEventListener('message', function (event) {
+    if (event.origin !== IFRAME_ORIGIN) return;           /* nur die eigene GitHub-Seite */
+    if (event.source !== frame.contentWindow) return;     /* nur genau dieses iFrame   */
+    var data = event.data;
+    if (!data || typeof data !== 'object' || data.channel !== CHANNEL) return;
+
+    if (data.type === 'ready') { hello(); return; }
+
+    if (data.type === 'resize') {
+      var h = Number(data.height);
+      if (!isFinite(h) || h < 200 || h > 40000) return;   /* Plausibilitätsprüfung */
+      sized = true;
+      frame.style.height = Math.ceil(h) + 'px';
+      return;
+    }
+
+    if (data.type === 'scroll') {
+      var top = Number(data.top);
+      if (!isFinite(top) || top < 0 || top > 40000) return;
+      var y = window.pageYOffset + frame.getBoundingClientRect().top + top - HEADER_OFFSET;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    }
+  });
+})();
+</script>
+<!-- ===== VARIANTE A – ENDE ===== -->
+
+
+<!-- ===== VARIANTE B – ANFANG (falls WordPress <script> entfernt) =====
+     Feste Höhe; die Seite scrollt innerhalb des Rahmens.
+     height:85vh = 85 % der Fensterhöhe, min-height verhindert zu kleine Rahmen.
+     Zum Verwenden: die Kommentarzeichen dieses Blocks entfernen und
+     Variante A NICHT zusätzlich einfügen.
+
+<iframe
+  src="https://letzbug.github.io/unipop-espace-formateurs/"
+  title="Espace Formateurs UniPop"
+  style="display:block;width:100%;height:85vh;min-height:640px;border:0;border-radius:16px;background:#00164a;"
+  allow="fullscreen; autoplay; picture-in-picture"
+  referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
+     ===== VARIANTE B – ENDE ===== -->

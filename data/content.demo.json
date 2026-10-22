@@ -1,0 +1,206 @@
+{
+  "_aide": "CONFIGURATION DE DÉMONSTRATION — contenus fictifs. Ouvrir la page avec ?demo à la fin de l'adresse. Les dates « J+10 » / « J-5 » sont relatives au jour de consultation, pour que la démonstration reste valable. Ne pas utiliser ce fichier en production.",
+
+  "meta": {
+    "demo": true,
+    "derniere_mise_a_jour": "J-0",
+    "pied_de_page": "Université populaire du Luxembourg — démonstration"
+  },
+
+  "integration": {
+    "origines_parent_autorisees": ["https://www.unipop.lu", "https://unipop.lu"],
+    "verifier_fichiers_locaux": true
+  },
+
+  "entete": {
+    "surtitre": "Université populaire du Luxembourg",
+    "titre": "Espace Formateurs UniPop",
+    "sous_titre": "Toutes les ressources essentielles pour vous accompagner dans votre activité de formateur·rice.",
+    "acces_rapides": [
+      { "titre": "Desiderata", "sous_titre": "Accéder au formulaire", "icone": "form", "couleur": "mint", "cible": "#desiderata" },
+      { "titre": "Tarifs", "sous_titre": "Consulter les grilles", "icone": "tag", "couleur": "lavender", "cible": "#tarifs" },
+      { "titre": "Onboarding", "sous_titre": "Bien démarrer", "icone": "cap", "couleur": "blue", "cible": "#onboarding" },
+      { "titre": "Contact", "sous_titre": "Une question ?", "icone": "mail", "couleur": "teal", "cible": "mailto:formateurs@example.org" }
+    ]
+  },
+
+  "disposition": {
+    "principale": ["tarifs", "tutoriels", "appels_a_concept"],
+    "secondaire": ["desiderata", "onboarding", "videos", "actualites"],
+    "ressources": ["flyers", "flyers_specifiques", "tutoriels_gicea", "reglements", "modele_aviwa", "train_the_trainer"]
+  },
+
+  "sections": {
+    "tarifs": {
+      "titre": "Tarifs",
+      "description": "Consultez les grilles tarifaires en vigueur pour les cours et ateliers.",
+      "document": { "titre": "Grille tarifaire (exemple)", "url": "assets/demo/exemple-document.pdf", "format": "PDF", "apercu_pdf_integre": true },
+      "apercu_tableau": {
+        "afficher": true,
+        "legende": "Cours du soir et cours intensifs, indexation normale (indice 968,04). Décision du Conseil de Gouvernement du 30.07.87.",
+        "colonnes": ["Code", "Catégorie", "Base (LUF)", "Indexé (LUF)", "€ / leçon"],
+        "alignement": ["gauche", "gauche", "droite", "droite", "droite"],
+        "colonnes_secondaires": [2, 3],
+        "lignes": [
+          ["SFA003", "Titulaire sans brevet", "600,00", "1.355", "33,59"],
+          ["SFA004", "E1–E2", "900,00", "2.032", "50,38"],
+          ["SFA005", "E3–E4", "1.150,00", "2.597", "64,38"],
+          ["SFA006", "E5–E6", "1.250,00", "2.823", "69,98"],
+          ["SFA007", "E7–E8", "1.400,00", "3.162", "78,37"]
+        ],
+        "notes": ["SFA05 – Niveau Première, SFA06 – Niveau Bachelor, SFA07 – Niveau Master.", "Aperçu indicatif : seul le document PDF officiel fait foi."]
+      }
+    },
+
+    "tutoriels": {
+      "titre": "Tutoriels",
+      "description": "Guides et tutoriels pour vous accompagner au quotidien.",
+      "nombre_affiche": 3,
+      "elements": [
+        { "titre": "Premiers pas à l’UniPop (exemple)", "video": "assets/demo/exemple-video.mp4", "document": "assets/demo/exemple-document.pdf", "duree": "3:12", "vignette": "assets/thumbnails/tutoriel-premiers-pas.svg" },
+        { "titre": "Gérer un cours (exemple)", "video": "assets/demo/exemple-video.mp4", "duree": "5:24", "vignette": "assets/thumbnails/tutoriel-gicea.svg" },
+        { "titre": "Déclarer ses présences (exemple)", "video": "assets/demo/exemple-video.mp4", "duree": "4:08", "vignette": "assets/thumbnails/tutoriel-presences.svg" },
+        { "titre": "Préparer sa première séance (exemple)", "document": "assets/demo/exemple-document.pdf", "vignette": "" }
+      ]
+    },
+
+    "appels_a_concept": {
+      "titre": "Appels à concept",
+      "description": "Participez aux prochains appels à concept et proposez vos idées de cours.",
+      "appels": [
+        { "titre": "Appel à concept Printemps (exemple)", "description": "Proposez un nouveau format de cours pour le semestre de printemps.", "date_publication": "J-20", "date_limite": "J+24", "lien": "assets/demo/exemple-document.pdf", "document": "assets/demo/exemple-document.pdf" },
+        { "titre": "Ateliers numériques (exemple)", "date_publication": "J-5", "date_limite": "J+60", "lien": "assets/demo/exemple-document.pdf" },
+        { "titre": "Appel programmé, encore invisible (exemple)", "date_publication": "J+10", "date_limite": "J+90", "lien": "assets/demo/exemple-document.pdf" },
+        { "titre": "Appel à concept Automne (exemple)", "date_limite": "J-40", "lien": "assets/demo/exemple-document.pdf" },
+        { "titre": "Appel à concept Printemps précédent (exemple)", "date_limite": "J-220", "lien": "assets/demo/exemple-document.pdf" },
+        { "titre": "Appel retiré manuellement (exemple)", "date_limite": "J+30", "statut": "archive", "lien": "assets/demo/exemple-document.pdf" }
+      ]
+    },
+
+    "desiderata": {
+      "titre": "Desiderata",
+      "description": "Proposez vos cours et vos disponibilités pour la prochaine saison.",
+      "formulaire": { "titre": "Formulaire Desiderata", "sous_titre": "Complétez le formulaire en ligne", "url": "assets/demo/exemple-document.pdf" },
+      "date_limite": "J+12"
+    },
+
+    "onboarding": {
+      "titre": "Onboarding",
+      "description": "Toutes les informations pour bien démarrer en tant que formateur·rice.",
+      "rubriques": [
+        { "titre": "Processus d’intégration", "icone": "users", "etapes": ["Premier échange avec l’équipe pédagogique (exemple).", "Envoi des documents administratifs (exemple).", "Visite des locaux et remise du badge (exemple)."] },
+        { "titre": "Documents à fournir", "icone": "file", "contenu": ["Liste fictive pour la démonstration :", "- Pièce A (exemple)", "- Pièce B (exemple)"], "documents": [ { "titre": "Formulaire d’exemple", "url": "assets/demo/exemple-document.pdf", "format": "PDF" } ] },
+        { "titre": "Bonnes pratiques", "icone": "check", "contenu": ["Texte de démonstration avec un [lien interne vers les tarifs](#tarifs) et du **texte en gras**."] }
+      ]
+    },
+
+    "videos": {
+      "titre": "Vidéos",
+      "description": "Retrouvez nos vidéos sur YouTube.",
+      "videos": [
+        { "titre": "Vidéo de démonstration", "url": "assets/demo/exemple-video.mp4", "vignette": "assets/demo/video-poster.svg", "duree": "0:06" },
+        { "titre": "Deuxième vidéo (exemple)", "url": "assets/demo/exemple-video.mp4", "duree": "0:06" }
+      ],
+      "liens": [
+        { "titre": "YouTube", "icone": "youtube", "url": "https://www.youtube.com/" },
+        { "titre": "Instagram", "icone": "instagram", "url": "https://www.instagram.com/unipopluxembourg/" }
+      ]
+    },
+
+    "actualites": {
+      "titre": "Actualités",
+      "description": "Les dernières nouvelles pour les formateur·rice·s.",
+      "nombre_affiche": 4,
+      "categories": { "Tarifs": "coral", "Formation": "navy", "Rappel": "lavender", "Appel à concept": "mint" },
+      "annonces": [
+        { "titre": "Annonce épinglée (exemple)", "resume": "Les annonces épinglées restent en tête.", "date": "J-30", "categorie": "Rappel", "epingle": true },
+        { "titre": "Nouvelle grille tarifaire (exemple)", "resume": "Un clic ouvre la section Tarifs.", "date": "J-2", "categorie": "Tarifs", "lien": "#tarifs", "important": true },
+        { "titre": "Formation interne (exemple)", "resume": "Inscription via Train the Trainer.", "date": "J-6", "categorie": "Formation", "lien": "#train_the_trainer" },
+        { "titre": "Appel à concept ouvert (exemple)", "resume": "Voir la carte Appels à concept.", "date": "J-9", "categorie": "Appel à concept", "lien": "#appels_a_concept" },
+        { "titre": "Rappel saisie des présences (exemple)", "resume": "Annonce plus ancienne, visible via « Voir toutes ».", "date": "J-25", "categorie": "Rappel" },
+        { "titre": "Annonce expirée (exemple)", "resume": "Ne doit pas s’afficher.", "date": "J-15", "categorie": "Rappel", "date_expiration": "J-1" },
+        { "titre": "Annonce programmée (exemple)", "resume": "Ne doit pas encore s’afficher.", "date": "J+3", "categorie": "Rappel" }
+      ]
+    },
+
+    "flyers": {
+      "titre": "Flyers",
+      "description": "Téléchargez nos flyers généraux.",
+      "flyers": [
+        { "titre": "Flyer général (exemple)", "description": "Document fictif", "fichier": "assets/demo/exemple-flyer.pdf", "vignette": "assets/thumbnails/flyer-general.svg" },
+        { "titre": "Programme du semestre (exemple)", "fichier": "assets/demo/exemple-flyer.pdf" }
+      ]
+    },
+
+    "flyers_specifiques": {
+      "titre": "Flyers spécifiques",
+      "description": "Des flyers adaptés à certaines thématiques.",
+      "nombre_affiche": 6,
+      "categories": ["Perlage", "Intelligence artificielle", "Yoga", "Langues", "Bien-être", "Informatique", "Art & Créativité", "Autres thèmes"],
+      "flyers": [
+        { "titre": "Perlage (exemple)", "categorie": "Perlage", "fichier": "assets/demo/exemple-flyer.pdf", "vignette": "assets/demo/flyer-perlage.svg" },
+        { "titre": "IA au quotidien (exemple)", "categorie": "Intelligence artificielle", "fichier": "assets/demo/exemple-flyer.pdf", "vignette": "assets/demo/flyer-ia.svg" },
+        { "titre": "Yoga doux (exemple)", "categorie": "Yoga", "fichier": "assets/demo/exemple-flyer.pdf", "vignette": "assets/demo/flyer-yoga.svg" },
+        { "titre": "Conversation (exemple)", "categorie": "Langues", "fichier": "assets/demo/exemple-flyer.pdf", "vignette": "assets/demo/flyer-langues.svg" },
+        { "titre": "Pleine conscience (exemple)", "categorie": "Bien-être", "fichier": "assets/demo/exemple-flyer.pdf" },
+        { "titre": "Tableur débutant (exemple)", "categorie": "Informatique", "fichier": "assets/demo/exemple-flyer.pdf" },
+        { "titre": "Aquarelle (exemple)", "categorie": "Art & Créativité", "fichier": "assets/demo/exemple-flyer.pdf" },
+        { "titre": "Langues : niveau 2 (exemple)", "categorie": "Langues", "fichier": "assets/demo/exemple-flyer.pdf" }
+      ]
+    },
+
+    "reglements": {
+      "titre": "Règlements",
+      "description": "Consultez les règlements et documents officiels.",
+      "documents": [
+        { "titre": "Règlement (exemple)", "url": "assets/demo/exemple-document.pdf", "format": "PDF" },
+        { "titre": "Règlement des bâtiments (exemple)", "url": "assets/demo/exemple-document.pdf", "format": "PDF" },
+        { "titre": "Conditions générales (exemple)", "url": "assets/demo/exemple-document.pdf", "format": "PDF" },
+        { "titre": "Document non encore fourni", "url": "A_COMPLETER: exemple d’emplacement vide", "format": "PDF" }
+      ]
+    },
+
+    "modele_aviwa": {
+      "titre": "Modèle AVIWA",
+      "description": "Téléchargez le modèle à compléter pour vos documents.",
+      "titre_document": "Modèle AVIWA (exemple)",
+      "fichiers": [
+        { "format": "DOCX", "url": "assets/demo/exemple-modele.docx", "taille": "37 Ko" },
+        { "format": "PDF", "url": "assets/demo/exemple-document.pdf" }
+      ]
+    },
+
+    "tutoriels_gicea": {
+      "titre": "Tutoriels GICEA",
+      "description": "Guides pratiques pour vos présences, déclarations et la connexion LuxTrust.",
+      "tutoriels": [
+        { "titre": "Se connecter avec LuxTrust (exemple)", "video": "assets/demo/exemple-video.mp4", "guide": "assets/demo/exemple-document.pdf", "duree": "2:15",
+          "etapes": ["Ouvrir la plateforme (adresse fictive).", "Choisir la méthode de connexion LuxTrust.", "Valider sur l’appareil personnel — ne jamais communiquer ses codes."] },
+        { "titre": "Saisir les présences (exemple)", "video": "assets/demo/exemple-video.mp4", "duree": "4:32",
+          "etapes": ["Ouvrir le cours fictif « DEMO-101 – Atelier exemple ».", "Sélectionner la séance du jour.", "Cocher les participant·e·s présent·e·s (données fictives).", "Enregistrer."] },
+        { "titre": "Déclarer un cours (exemple)", "guide": "assets/demo/exemple-document.pdf", "duree": "" },
+        { "titre": "Astuces et bonnes pratiques (exemple)", "video": "", "guide": "" }
+      ],
+      "depannage": [
+        { "titre": "La connexion échoue (exemple)", "contenu": ["Texte de démonstration : vérifier la date de validité du certificat, puis réessayer."] }
+      ],
+      "liens": [
+        { "titre": "Assistance LuxTrust", "icone": "luxtrust", "url": "https://www.luxtrust.com/" }
+      ],
+      "avertissement": "Ne communiquez jamais vos identifiants ni vos codes LuxTrust, que ce soit par e-mail, par téléphone ou dans un formulaire."
+    },
+
+    "train_the_trainer": {
+      "titre": "Train the Trainer",
+      "description": "Formations internes pour développer vos compétences pédagogiques.",
+      "sessions": [
+        { "titre": "Animer un groupe hétérogène (exemple)", "date": "J+14", "horaire": "18:00 – 20:00", "lieu": "Salle fictive 1", "inscription": "assets/demo/exemple-document.pdf" },
+        { "titre": "Outils numériques en classe (exemple)", "date": "J+35", "horaire": "09:30 – 12:00", "lieu": "En ligne", "inscription": "assets/demo/exemple-document.pdf" },
+        { "titre": "Session passée (exemple)", "date": "J-3", "horaire": "18:00", "lieu": "Ne doit pas s’afficher" }
+      ],
+      "ressources": [
+        { "titre": "Support de formation (exemple)", "url": "assets/demo/exemple-document.pdf", "format": "PDF" }
+      ]
+    }
+  }
+}

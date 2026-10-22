@@ -1,0 +1,1 @@
+Ordner für Flyer-PDFs. Siehe README.md, Abschnitt 5.

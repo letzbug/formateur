@@ -1,0 +1,1 @@
+Ordner für Bilder (z. B. eigene Vorschaubilder). Siehe README.md.

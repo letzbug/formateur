@@ -1,0 +1,260 @@
+{
+  "_aide": "Configuration de l'Espace Formateurs UniPop. Toute valeur commençant par A_COMPLETER est un emplacement vide : la page l'affiche comme « Bientôt disponible ». Dates au format AAAA-MM-JJ. Les clés commençant par _ sont des commentaires ignorés par la page. Mode d'emploi complet : README.md.",
+
+  "meta": {
+    "derniere_mise_a_jour": "2026-10-22",
+    "afficher_date_mise_a_jour": true,
+    "pied_de_page": "Université populaire du Luxembourg"
+  },
+
+  "integration": {
+    "_aide": "Adresses des sites autorisés à intégrer cette page dans une iFrame (ajout automatique de la hauteur).",
+    "origines_parent_autorisees": ["https://www.unipop.lu", "https://unipop.lu"],
+    "verifier_fichiers_locaux": true
+  },
+
+  "entete": {
+    "surtitre": "Université populaire du Luxembourg",
+    "titre": "Espace Formateurs UniPop",
+    "sous_titre": "Toutes les ressources essentielles pour vous accompagner dans votre activité de formateur·rice.",
+    "acces_rapides": [
+      { "titre": "Desiderata", "sous_titre": "Accéder au formulaire", "icone": "form", "couleur": "mint", "cible": "#desiderata" },
+      { "titre": "Tarifs", "sous_titre": "Consulter les grilles", "icone": "tag", "couleur": "lavender", "cible": "#tarifs" },
+      { "titre": "Onboarding", "sous_titre": "Bien démarrer", "icone": "cap", "couleur": "blue", "cible": "#onboarding" },
+      { "titre": "Contact", "sous_titre": "Une question ?", "icone": "mail", "couleur": "teal", "cible": "A_COMPLETER: lien du bouton « Contact » de la page actuelle (mailto:adresse@… ou URL)" }
+    ]
+  },
+
+  "disposition": {
+    "_aide": "Ordre et emplacement des sections. principale = grande rangée du haut (la 1re carte est mise en avant), secondaire = 2e rangée, ressources = bas de page.",
+    "principale": ["tarifs", "tutoriels", "appels_a_concept"],
+    "secondaire": ["desiderata", "onboarding", "videos", "actualites"],
+    "ressources": ["flyers", "flyers_specifiques", "tutoriels_gicea", "reglements", "modele_aviwa", "train_the_trainer"]
+  },
+
+  "sections": {
+
+    "tarifs": {
+      "visible": true,
+      "titre": "Tarifs",
+      "description": "Consultez les grilles tarifaires en vigueur pour les cours et ateliers.",
+      "document": {
+        "titre": "Grille tarifaire en vigueur",
+        "url": "A_COMPLETER: assets/documents/tarifs.pdf (copie du PDF « Tarifs » de la page actuelle)",
+        "format": "PDF",
+        "apercu_pdf_integre": true
+      },
+      "apercu_tableau": {
+        "afficher": true,
+        "_source": "Valeurs relevées sur le PDF des tarifs affiché sur la page formateur actuelle. À contrôler à chaque nouvelle indexation : seul le PDF fait foi.",
+        "legende": "Cours du soir et cours intensifs, indexation normale (indice 968,04). Décision du Conseil de Gouvernement du 30.07.87.",
+        "colonnes": ["Code", "Catégorie", "Base (LUF)", "Indexé (LUF)", "€ / leçon"],
+        "alignement": ["gauche", "gauche", "droite", "droite", "droite"],
+        "colonnes_secondaires": [2, 3],
+        "lignes": [
+          ["SFA003", "Titulaire sans brevet", "600,00", "1.355", "33,59"],
+          ["SFA004", "E1–E2", "900,00", "2.032", "50,38"],
+          ["SFA005", "E3–E4", "1.150,00", "2.597", "64,38"],
+          ["SFA006", "E5–E6", "1.250,00", "2.823", "69,98"],
+          ["SFA007", "E7–E8", "1.400,00", "3.162", "78,37"]
+        ],
+        "notes": [
+          "SFA05 – Niveau Première, SFA06 – Niveau Bachelor, SFA07 – Niveau Master.",
+          "Pour les leçons pratiques, il faut appliquer un coefficient de 22/28 par heure.",
+          "Aperçu indicatif : seul le document PDF officiel fait foi."
+        ]
+      }
+    },
+
+    "tutoriels": {
+      "visible": true,
+      "titre": "Tutoriels",
+      "description": "Guides et tutoriels pour vous accompagner au quotidien.",
+      "nombre_affiche": 3,
+      "elements": [
+        {
+          "titre": "Premiers pas à l'UniPop",
+          "video": "A_COMPLETER: URL YouTube du tutoriel",
+          "document": "",
+          "duree": "",
+          "vignette": "assets/thumbnails/tutoriel-premiers-pas.svg"
+        },
+        {
+          "titre": "Gérer un cours dans GICEA",
+          "video": "A_COMPLETER: URL YouTube du tutoriel",
+          "document": "",
+          "duree": "",
+          "vignette": "assets/thumbnails/tutoriel-gicea.svg"
+        },
+        {
+          "titre": "Déclarer ses présences",
+          "video": "A_COMPLETER: URL YouTube du tutoriel",
+          "document": "",
+          "duree": "",
+          "vignette": "assets/thumbnails/tutoriel-presences.svg"
+        }
+      ],
+      "_modele": { "titre": "Titre", "description": "Phrase courte (facultatif)", "video": "https://www.youtube.com/watch?v=XXXXXXXXXXX", "document": "assets/documents/guide.pdf", "duree": "4:08", "vignette": "assets/thumbnails/mon-image.jpg" }
+    },
+
+    "appels_a_concept": {
+      "visible": true,
+      "titre": "Appels à concept",
+      "description": "Participez aux prochains appels à concept et proposez vos idées de cours.",
+      "texte_aucun_appel": "Aucun appel à concept n’est ouvert actuellement. Les prochains appels seront publiés ici.",
+      "titre_archive": "Anciens appels à concept",
+      "appels": [],
+      "_modele": { "titre": "Titre de l'appel", "description": "Résumé en une ou deux phrases.", "date_publication": "2027-01-15", "date_limite": "2027-03-31", "lien": "https://… ou assets/documents/appel.pdf", "document": "assets/documents/appel.pdf" }
+    },
+
+    "desiderata": {
+      "visible": true,
+      "titre": "Desiderata",
+      "description": "Proposez vos cours et vos disponibilités pour la prochaine saison.",
+      "formulaire": {
+        "titre": "Formulaire Desiderata",
+        "sous_titre": "Complétez le formulaire en ligne",
+        "url": "A_COMPLETER: lien du bouton « Desiderata » de la page actuelle"
+      },
+      "date_limite": "",
+      "documents": []
+    },
+
+    "onboarding": {
+      "visible": true,
+      "titre": "Onboarding",
+      "description": "Toutes les informations pour bien démarrer en tant que formateur·rice.",
+      "introduction": "Bienvenue à l’UniPop ! Retrouvez ici les étapes et les documents utiles pour commencer.",
+      "rubriques": [
+        { "titre": "Processus d’intégration", "icone": "users", "contenu": [], "documents": [] },
+        {
+          "titre": "Documents à fournir",
+          "icone": "file",
+          "contenu": [],
+          "documents": [
+            { "titre": "Demande d’accréditation", "url": "A_COMPLETER: lien du bouton « Accréditation (PDF) » de la page actuelle", "format": "PDF" }
+          ]
+        },
+        {
+          "titre": "Informations pratiques",
+          "icone": "mapPin",
+          "_aide": "Adresse publique de l’UniPop (Belval) — à vérifier.",
+          "contenu": ["**Adresse :** Bâtiment Terres Rouges, 14, Porte de France, L-4360 Esch-sur-Alzette"],
+          "documents": []
+        },
+        { "titre": "Bonnes pratiques", "icone": "check", "contenu": [], "documents": [] }
+      ]
+    },
+
+    "videos": {
+      "visible": true,
+      "titre": "Vidéos",
+      "description": "Retrouvez nos vidéos sur YouTube.",
+      "videos": [
+        { "titre": "Vidéo UniPop", "url": "A_COMPLETER: URL de la vidéo YouTube affichée sur la page actuelle", "duree": "", "vignette": "" }
+      ],
+      "liens": [
+        { "titre": "YouTube", "icone": "youtube", "url": "A_COMPLETER: URL de la chaîne YouTube UniPop" },
+        { "titre": "Instagram", "icone": "instagram", "url": "https://www.instagram.com/unipopluxembourg/" }
+      ]
+    },
+
+    "actualites": {
+      "visible": true,
+      "titre": "Actualités",
+      "description": "Les dernières nouvelles pour les formateur·rice·s.",
+      "nombre_affiche": 4,
+      "texte_aucune_annonce": "Aucune actualité pour le moment.",
+      "categories": {
+        "Tarifs": "coral",
+        "Formation": "navy",
+        "Rappel": "lavender",
+        "Appel à concept": "mint",
+        "Information": "teal"
+      },
+      "annonces": [],
+      "_modele": { "titre": "Titre de l'annonce", "resume": "Une phrase.", "date": "2026-11-05", "categorie": "Rappel", "lien": "#tarifs", "epingle": false, "important": false, "date_expiration": "2026-12-31" }
+    },
+
+    "flyers": {
+      "visible": true,
+      "titre": "Flyers",
+      "description": "Téléchargez nos flyers généraux.",
+      "flyers": [
+        {
+          "titre": "Flyer général UniPop",
+          "description": "Envie de découvrir l’univers UniPop ?",
+          "fichier": "A_COMPLETER: assets/flyers/flyer-general.pdf (copie du « Flyer (PDF) » de la page actuelle)",
+          "vignette": "assets/thumbnails/flyer-general.svg"
+        }
+      ]
+    },
+
+    "flyers_specifiques": {
+      "visible": true,
+      "titre": "Flyers spécifiques",
+      "description": "Des flyers adaptés à certaines thématiques.",
+      "taille": "large",
+      "nombre_affiche": 6,
+      "categories": ["Perlage", "Intelligence artificielle", "Yoga", "Langues", "Bien-être", "Informatique", "Art & Créativité", "Autres thèmes"],
+      "flyers": [],
+      "_modele": { "titre": "Titre du flyer", "categorie": "Yoga", "fichier": "assets/flyers/yoga.pdf", "vignette": "assets/thumbnails/yoga.jpg" }
+    },
+
+    "reglements": {
+      "visible": true,
+      "titre": "Règlements",
+      "description": "Consultez les règlements et documents officiels.",
+      "documents": [
+        { "titre": "Règlement UniPop", "url": "A_COMPLETER: assets/documents/reglement-unipop.pdf", "format": "PDF" },
+        { "titre": "Règlement des bâtiments", "url": "A_COMPLETER: assets/documents/reglement-batiments.pdf", "format": "PDF" },
+        { "titre": "Conditions générales", "url": "A_COMPLETER: assets/documents/conditions-generales.pdf", "format": "PDF" },
+        { "titre": "Guide du formateur·rice", "url": "A_COMPLETER: assets/documents/guide-formateur.pdf", "format": "PDF" }
+      ]
+    },
+
+    "modele_aviwa": {
+      "visible": true,
+      "titre": "Modèle AVIWA",
+      "description": "Téléchargez le modèle à compléter pour vos documents.",
+      "titre_document": "Modèle AVIWA",
+      "fichiers": [
+        { "format": "DOCX", "url": "A_COMPLETER: assets/documents/modele-aviwa.docx", "taille": "" }
+      ],
+      "consignes": ""
+    },
+
+    "tutoriels_gicea": {
+      "visible": true,
+      "titre": "Tutoriels GICEA",
+      "description": "Guides pratiques pour vos présences, déclarations et la connexion LuxTrust.",
+      "taille": "large",
+      "introduction": "",
+      "tutoriels": [
+        { "titre": "Se connecter avec LuxTrust", "video": "A_COMPLETER: URL YouTube", "guide": "", "duree": "", "etapes": [] },
+        { "titre": "Saisir les présences", "video": "A_COMPLETER: URL YouTube", "guide": "", "duree": "", "etapes": [] },
+        { "titre": "Préparer et soumettre une déclaration", "video": "A_COMPLETER: URL YouTube", "guide": "", "duree": "", "etapes": [] },
+        { "titre": "Résoudre les problèmes courants", "video": "", "guide": "A_COMPLETER: assets/documents/gicea-depannage.pdf", "duree": "", "etapes": [] }
+      ],
+      "depannage": [],
+      "liens": [
+        { "titre": "Accéder à GICEA", "icone": "external", "url": "A_COMPLETER: adresse de la plateforme GICEA" },
+        { "titre": "Assistance LuxTrust", "icone": "luxtrust", "url": "https://www.luxtrust.com/" }
+      ],
+      "avertissement": "Ne communiquez jamais vos identifiants ni vos codes LuxTrust, que ce soit par e-mail, par téléphone ou dans un formulaire."
+    },
+
+    "train_the_trainer": {
+      "visible": true,
+      "titre": "Train the Trainer",
+      "description": "Formations internes pour développer vos compétences pédagogiques.",
+      "introduction": "",
+      "nombre_affiche": 3,
+      "texte_aucune_session": "Aucune session n’est programmée pour le moment.",
+      "sessions": [],
+      "titre_ressources": "Ressources",
+      "ressources": [],
+      "_modele": { "titre": "Titre de la session", "date": "2026-12-03", "horaire": "18:00 – 20:00", "lieu": "UniPop Belval, salle 2.04", "description": "Une phrase.", "inscription": "https://…" }
+    }
+  }
+}

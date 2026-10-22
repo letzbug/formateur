@@ -1,0 +1,1 @@
+Ordner für PDFs und Word-Dateien (Tarife, Règlements, Modèle AVIWA …). Siehe README.md, Abschnitt 4.
